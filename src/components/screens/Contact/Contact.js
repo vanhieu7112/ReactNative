@@ -13,7 +13,7 @@ export default class Contact extends Component {
     tabBarLabel: 'Contact',
     tabBarIcon: ({ tintColor }) => (
       <Image 
-       source={require('../../imgs/contact.png')}
+       source={require('../../imgs/contact11.png')}
        style={[styles.icon, { tintColor }]} 
       /> 
     )

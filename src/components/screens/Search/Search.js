@@ -17,7 +17,7 @@ export default class Search extends Component {
     tabBarLabel: 'Search',
     tabBarIcon: ({ tintColor }) => (
       <Image
-        source={require('../../imgs/search.png')}
+        source={require('../../imgs/search11.png')}
         style={[styles.icon, { tintColor }]}
       />
     )

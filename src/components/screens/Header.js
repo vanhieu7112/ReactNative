@@ -27,6 +27,7 @@ export default class Header extends Component {
                     <Image source={icLogo} style={iconStyle} />
                 </View>
                 <TextInput 
+                    underlineColorAndroid='transparent'
                     style={textInput}
                     placeholder="What do you want to buy?"
                 />
@@ -40,14 +41,16 @@ const styles = StyleSheet.create({
         height: height / 8,
         backgroundColor: '#34B089',
         padding: 10,
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        elevation: 4
     },
     row1: { flexDirection: 'row', justifyContent: 'space-between' },
     textInput: {
         height: height / 23,
         backgroundColor: '#FFF',
         paddingLeft: 10,
-        paddingVertical: 0
+        paddingVertical: 0,
+        borderRadius: 0
     },
     titleStyle: { color: '#FFF', fontFamily: 'Avenir', fontSize: 20 },
     iconStyle: { width: 25, height: 25 }

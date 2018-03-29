@@ -18,13 +18,15 @@ const TabMyShop = TabNavigator({
         swipeEnabled: true,
         tabBarOptions: {
             style: {
-                backgroundColor: '#dddddd'
+                backgroundColor: '#FFF',
+                elevation: 20
             },
             labelStyle: {
+                margin: 0,
                 fontSize: 10,
             },
-            inactiveTintColor: '#000000',
-            activeTintColor: '#00796B',
+            inactiveTintColor: '#9E9E9E',
+            activeTintColor: '#34B089',
             showIcon: true,
         },
     });
@@ -40,13 +42,6 @@ export default class Shop extends Component {
             <View style={{ flex: 1 }}>
                 <View>
                    <Header onOpen={this.openMenu.bind(this)} /> 
-                   {/* <TouchableOpacity
-                   onPress={() => { this.props.navigation.navigate('DrawerOpen'); }}
-                   >
-                   <Image
-                       source={require('./../imgs/menu.png')}
-                   />
-                    </TouchableOpacity> */}
                   
                 </View>
                 <View style={{ flex: 1 }}>

@@ -13,7 +13,7 @@ export default class Cart extends Component {
     tabBarLabel: 'Cart',
     tabBarIcon: ({ tintColor }) => (
       <Image 
-       source={require('../../imgs/cart.png')}
+       source={require('../../imgs/cart11.png')}
        style={[styles.icon, { tintColor }]} 
       /> 
     )
