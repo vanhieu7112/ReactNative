@@ -5,10 +5,12 @@ import {
   View,
   TouchableOpacity,
   Image,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from 'react-native';
 import Collection from './Collection';
 import Category from './Category';
+import TopProduct from './TopProduct';
 
 const { height } = Dimensions.get('window');
 
@@ -27,12 +29,13 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
         <View style={styles.container}>
-          <Collection />
-          <Category />
+          {/* <Collection />
+          <Category /> */}
+          <TopProduct />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
