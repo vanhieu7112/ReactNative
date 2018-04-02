@@ -28,6 +28,7 @@ const TabMyShop = TabNavigator({
             inactiveTintColor: '#9E9E9E',
             activeTintColor: '#34B089',
             showIcon: true,
+            indicatorStyle: { backgroundColor: 'transparent', }
         },
     });
 

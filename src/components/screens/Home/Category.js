@@ -67,10 +67,10 @@ export default class Category extends Component {
         }
         return (
             <View style={wrapper}>
-                <View style={{ flex: 1, justifyContent: 'center', marginTop: 0, }}>
+                <View style={{ height: 50, justifyContent: 'center' }}>
                     <Text style={texStyle}>LIST OF CATEGORY</Text>
                 </View>
-                <View style={{ flex: 3 }}>
+                <View style={{ flex: 4 }}>
                     {swiper}
                 </View>
             </View>
@@ -82,7 +82,7 @@ const imageHeight = imageWidth / 2;
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: height * 0.33,
+        height: height * 0.35,
         backgroundColor: '#FFF',
         margin: 10,
         elevation: 5,
