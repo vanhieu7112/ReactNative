@@ -29,12 +29,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <ScrollView style={{ flex: 1 }}>
-        <View style={styles.container}>
-          {/* <Collection />
-          <Category /> */}
+      <ScrollView style={{ flex: 1, backgroundColor: '#BDBDBD' }}>
+          <Collection />
+          <Category />
           <TopProduct />
-        </View>
       </ScrollView>
     );
   }
