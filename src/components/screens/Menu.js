@@ -14,7 +14,7 @@ import profileIcon from '../../media/temp/profile.png';
 export default class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = { isLogedIn: true };
+        this.state = { isLogedIn: false };
     }
     render() {
         // console.log(this.props);
@@ -22,7 +22,7 @@ export default class Menu extends Component {
         const { container, profile, btnStyle, btnText, btnSignInStyle, btnTextSignIn, loginContainer, userName } = styles;
         const logoutJSX = (
             <View style={{ flex: 1 }}>
-                <TouchableOpacity style={btnStyle}>
+                <TouchableOpacity style={btnStyle} onPress={() => navigate('Authentication')}>
                     <Text style={btnText}>Sign In</Text>
                 </TouchableOpacity>
             </View>
@@ -31,10 +31,10 @@ export default class Menu extends Component {
             <View style={loginContainer}>
                     <Text style={userName}>Bui Van Hieu</Text>
                     <View>
-                        <TouchableOpacity style={btnSignInStyle}>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('OrderHistory')}>
                             <Text style={btnTextSignIn}>Order History</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle}>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('ChangeInfo')}>
                             <Text style={btnTextSignIn}>Change Info</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle}>
