@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Dimensions, ImageBackground } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import littleIcon from '../../../media/temp/little.jpg';
@@ -24,7 +24,9 @@ export default class Category extends Component {
             });
         }, 100);
     }
-
+    // openListProduct() {
+    //     this.props.navigation.navigate('ListProduct');
+    // }
     render() {
         const { wrapper, texStyle, imageStyle, scrollwrap, cateTitle } = styles;
         let swiper = null;
@@ -34,32 +36,38 @@ export default class Category extends Component {
                 activeDotColor={'#34B089'}
                 horizontal
                 loop={true}
-                bounces 
-                autoplay 
+                bounces
+                autoplay
                 autoplayTimeout={4}
                 showsButtons={false}
                 removeClippedSubviews={false}
-            >   
+            >
                 <View style={imageStyle}>
-                    <ImageBackground resizeMode='cover' style={imageStyle} source={littleIcon}> 
-                        <Text style={cateTitle}>
-                            Little Adress
-                        </Text>
-                    </ImageBackground>
+                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
+                        <ImageBackground resizeMode='cover' style={imageStyle} source={littleIcon}>
+                            <Text style={cateTitle}>
+                                Little Adress
+                            </Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
                 </View>
                 <View style={imageStyle}>
-                    <ImageBackground resizeMode='cover' style={imageStyle} source={maxiIcon}> 
-                        <Text style={cateTitle}>
-                            Maxi Adress
-                        </Text>
-                    </ImageBackground>
+                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
+                        <ImageBackground resizeMode='cover' style={imageStyle} source={maxiIcon}>
+                            <Text style={cateTitle}>
+                                Maxi Adress
+                            </Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
                 </View>
                 <View style={imageStyle}>
-                    <ImageBackground resizeMode='cover' style={imageStyle} source={partyIcon}>
-                        <Text style={cateTitle}>
+                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
+                        <ImageBackground resizeMode='cover' style={imageStyle} source={partyIcon}>
+                            <Text style={cateTitle}>
                                 Party Adress
-                        </Text>
-                    </ImageBackground> 
+                            </Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
                 </View>
             </Swiper>);
         } else {
@@ -106,6 +114,6 @@ const styles = StyleSheet.create({
     cateTitle: {
         fontSize: 17,
         color: '#9A9A9A',
-        fontFamily: 'Rubik'     
+        fontFamily: 'Rubik'
     }
 });

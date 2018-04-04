@@ -30,7 +30,11 @@ export default class Search extends Component {
           <Text>
             Search Component
         </Text>
-
+        <TouchableOpacity style={{ backgroundColor: 'green' }}
+          onPress={() => { this.props.navigation.navigate('ProductDetail'); }}
+        >
+          <Text style={{ color: '#fff', fontSize: 20, padding: 10 }}>Go to Detail </Text>
+        </TouchableOpacity>
         </View>
       </View>
     );

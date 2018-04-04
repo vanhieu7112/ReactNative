@@ -16,23 +16,26 @@ const { height } = Dimensions.get('window');
 
 export default class Home extends Component {
 
-  static navigationOptions = {
-    title: 'HOME',  
-    tabBarLabel: 'Home',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('../../imgs/home11.png')}
-        style={[styles.icon, { tintColor }]}
-      />
-    )
-  };
+  // static navigationOptions = {
+  //   title: 'HOME',
+  //   tabBarLabel: 'Home',
+  //   tabBarIcon: ({ tintColor }) => (
+  //     <Image
+  //       source={require('../../imgs/home11.png')}
+  //       style={[styles.icon, { tintColor }]}
+  //     />
+  //   )
+  // };
 
+  openListProduct() {
+    this.props.navigation.navigate('ListProduct');
+  }
   render() {
     return (
       <ScrollView style={{ flex: 1, backgroundColor: '#BDBDBD' }}>
-          <Collection />
-          <Category />
-          <TopProduct />
+        <Collection />
+        <Category onOpen={this.openListProduct.bind(this)} />
+        <TopProduct />
       </ScrollView>
     );
   }
