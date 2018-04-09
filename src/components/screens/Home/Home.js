@@ -30,12 +30,15 @@ export default class Home extends Component {
   openListProduct() {
     this.props.navigation.navigate('ListProduct');
   }
+  openDetail() {
+    this.props.navigation.navigate('ProductDetail'); 
+  }
   render() {
     return (
       <ScrollView style={{ flex: 1, backgroundColor: '#BDBDBD' }}>
         <Collection />
         <Category onOpen={this.openListProduct.bind(this)} />
-        <TopProduct />
+        <TopProduct onOpen={this.openDetail.bind(this)} />
       </ScrollView>
     );
   }

@@ -9,16 +9,16 @@ import {
 
 
 export default class Cart extends Component {
-  static navigationOptions = {
-    title: 'Cart',
-    tabBarLabel: 'Cart',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('../../imgs/cart11.png')}
-        style={[styles.icon, { tintColor }]}
-      />
-    )
-  };
+  // static navigationOptions = {
+  //   title: 'Cart',
+  //   tabBarLabel: 'Cart',
+  //   tabBarIcon: ({ tintColor }) => (
+  //     <Image
+  //       source={require('../../imgs/cart11.png')}
+  //       style={[styles.icon, { tintColor }]}
+  //     />
+  //   )
+  // };
   render() {
     return (
       <View style={styles.container}>

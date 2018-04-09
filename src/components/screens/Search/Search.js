@@ -12,16 +12,16 @@ const { height } = Dimensions.get('window');
 
 
 export default class Search extends Component {
-  static navigationOptions = {
+  // static navigationOptions = {
 
-    tabBarLabel: 'Search',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('../../imgs/search11.png')}
-        style={[styles.icon, { tintColor }]}
-      />
-    )
-  };
+  //   tabBarLabel: 'Search',
+  //   tabBarIcon: ({ tintColor }) => (
+  //     <Image
+  //       source={require('../../imgs/search11.png')}
+  //       style={[styles.icon, { tintColor }]}
+  //     />
+  //   )
+  // };
   render() {
     return (
       <View style={{ flex: 1 }}>
