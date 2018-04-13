@@ -97,6 +97,7 @@ const TabMyShop = TabNavigator({
 
 
 export default class Shop extends Component {
+ 
     openMenu() {
         this.props.navigation.navigate('DrawerOpen');
     }

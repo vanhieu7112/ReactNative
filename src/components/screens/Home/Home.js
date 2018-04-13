@@ -16,6 +16,21 @@ const { height } = Dimensions.get('window');
 
 export default class Home extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+        types: [],
+    };
+}
+  componentDidMount() {
+    fetch('http://192.168.1.3/api/')
+        .then(res => res.json())
+        .then(resJSON => {
+            const { type } = resJSON;
+            this.setState({ types: type });
+        });
+}
+
   // static navigationOptions = {
   //   title: 'HOME',
   //   tabBarLabel: 'Home',
@@ -34,10 +49,11 @@ export default class Home extends Component {
     this.props.navigation.navigate('ProductDetail'); 
   }
   render() {
+    const { types } = this.state;
     return (
       <ScrollView style={{ flex: 1, backgroundColor: '#BDBDBD' }}>
         <Collection />
-        <Category onOpen={this.openListProduct.bind(this)} />
+        <Category onOpen={this.openListProduct.bind(this)} types={types} />
         <TopProduct onOpen={this.openDetail.bind(this)} />
       </ScrollView>
     );

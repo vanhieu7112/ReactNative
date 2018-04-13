@@ -28,6 +28,7 @@ export default class Category extends Component {
     //     this.props.navigation.navigate('ListProduct');
     // }
     render() {
+        const { types } = this.props;
         const { wrapper, texStyle, imageStyle, scrollwrap, cateTitle } = styles;
         let swiper = null;
         if (this.state.visibleSwiper) {
@@ -42,33 +43,17 @@ export default class Category extends Component {
                 showsButtons={false}
                 removeClippedSubviews={false}
             >
-                <View style={imageStyle}>
-                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
-                        <ImageBackground resizeMode='cover' style={imageStyle} source={littleIcon}>
-                            <Text style={cateTitle}>
-                                Little Adress
-                            </Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                </View>
-                <View style={imageStyle}>
-                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
-                        <ImageBackground resizeMode='cover' style={imageStyle} source={maxiIcon}>
-                            <Text style={cateTitle}>
-                                Maxi Adress
-                            </Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                </View>
-                <View style={imageStyle}>
-                    <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
-                        <ImageBackground resizeMode='cover' style={imageStyle} source={partyIcon}>
-                            <Text style={cateTitle}>
-                                Party Adress
-                            </Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                </View>
+                {types.map(e => (
+                    <View style={imageStyle} key={e.id}>
+                        <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
+                            <ImageBackground source={{ uri: `http://192.168.1.3/api/images/type/${e.image}` }} resizeMode='cover' style={imageStyle} >
+                                <Text style={cateTitle}>
+                                    {e.name}
+                                </Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+                ))}
             </Swiper>);
         } else {
             swiper = <View />;
@@ -93,7 +78,7 @@ const styles = StyleSheet.create({
         height: height * 0.35,
         backgroundColor: '#FFF',
         margin: 10,
-        elevation: 5,
+        elevation: 4,
         padding: 10,
         paddingTop: 0,
         // paddingBottom: 5 
