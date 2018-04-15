@@ -7,6 +7,7 @@ import maxiIcon from '../../../media/temp/maxi.jpg';
 import partyIcon from '../../../media/temp/party.jpg';
 
 const { width, height } = Dimensions.get('window');
+const url = 'http://192.168.1.3/api/images/type/';
 
 export default class Category extends Component {
 
@@ -46,7 +47,7 @@ export default class Category extends Component {
                 {types.map(e => (
                     <View style={imageStyle} key={e.id}>
                         <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
-                            <ImageBackground source={{ uri: `http://192.168.1.3/api/images/type/${e.image}` }} resizeMode='cover' style={imageStyle} >
+                            <ImageBackground source={{ uri: `${url}${e.image}` }} resizeMode='cover' style={imageStyle} >
                                 <Text style={cateTitle}>
                                     {e.name}
                                 </Text>

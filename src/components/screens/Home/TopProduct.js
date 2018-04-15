@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, FlatList } from 'react-native';
 
 import sp1 from '../../../media/temp/sp1.jpeg';
 import sp2 from '../../../media/temp/sp2.jpeg';
 import sp3 from '../../../media/temp/sp3.jpeg';
 import sp4 from '../../../media/temp/sp4.jpeg';
+
+const url = 'http://192.168.1.3/api/images/product/';
 
 export default class extends Component {
     render() {
@@ -18,27 +20,20 @@ export default class extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    <TouchableOpacity style={productContainer} onPress={() => { this.props.onOpen(); }}>
-                        <Image source={sp1} style={productImage} />
+                <FlatList 
+                 data={this.props.topProducts}
+                 renderItem={({ item }) =>
+                 <View> 
+                    <TouchableOpacity style={productContainer} onPress={() => { this.props.onOpen(); }} key={item.id}>
+                        <Image source={{ uri: `${url}${item.images[0]}` }} style={productImage} />
                         <Text style={productName}>PRODUCT NAME</Text>
                         <Text style={productPrice}>400$</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={productContainer} onPress={() => { this.props.onOpen(); }}>
-                        <Image source={sp2} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
-                    <View style={{ height: 10, width }} />
-                    <TouchableOpacity style={productContainer} onPress={() => { this.props.onOpen(); }}>
-                        <Image source={sp3} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>400$</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={productContainer} onPress={() => { this.props.onOpen(); }}>
-                        <Image source={sp4} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
+                </View>    
+                }
+                numColumns={2}
+                keyExtractor={() => Math.random().toString(36).substr(2, 9)}
+                />  
                 </View>
             </View> 
         );
@@ -67,12 +62,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap',
-        paddingBottom: 10
+        paddingBottom: 0
     },
     productContainer: {
+        marginTop: 0,
+        margin: 10,
         width: productWidth,
-        elevation: 3,
+        elevation: 2,
         paddingBottom: 10,
+        marginBottom: 10,
         borderWidth: 0
     },
     productImage: {
