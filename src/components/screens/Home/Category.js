@@ -25,10 +25,12 @@ export default class Category extends Component {
             });
         }, 100);
     }
-    // openListProduct() {
-    //     this.props.navigation.navigate('ListProduct');
-    // }
+    openListProduct() {
+        this.props.navigation.navigate('ListProduct');
+    }
     render() {
+        const { params } = this.props.navigation.state;
+        const { navigate } = this.props.navigation;
         const { types } = this.props;
         const { wrapper, texStyle, imageStyle, scrollwrap, cateTitle } = styles;
         let swiper = null;
@@ -46,7 +48,7 @@ export default class Category extends Component {
             >
                 {types.map(e => (
                     <View style={imageStyle} key={e.id}>
-                        <TouchableOpacity onPress={() => { this.props.onOpen(); }}>
+                        <TouchableOpacity onPress={() => { navigate('ListProduct'); }}>
                             <ImageBackground source={{ uri: `${url}${e.image}` }} resizeMode='cover' style={imageStyle} >
                                 <Text style={cateTitle}>
                                     {e.name}

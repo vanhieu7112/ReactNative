@@ -6,12 +6,24 @@ import Search from '../screens/Search/Search';
 import Header from './Header';
 import ProductDetail from './Home/ProductDetail';
 import ListProduct from './Home/ListProduct';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import TopProduct from './Home/TopProduct';
+import Category from './Home/Category';
+import { View, Image, StyleSheet } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+
+// const CategoryStack = StackNavigator({
+//     Category: { screen: Category },
+//     ListProduct: { screen: ListProduct },
+// },
+// {
+//     headerMode: 'none'
+// }
+// ); 
 
 const HomeStack = StackNavigator({
     ManHinh_Home: { screen: Home },
     ListProduct: { screen: ListProduct },
+    // TopProduct: { screen: TopProduct },
     ProductDetail: { screen: ProductDetail },
 },
     {

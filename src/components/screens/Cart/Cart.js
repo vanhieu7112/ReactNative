@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { 
-    View, Text, TouchableOpacity, ScrollView, 
-    Dimensions, StyleSheet, Image 
+import {
+    View, Text, TouchableOpacity, ScrollView,
+    Dimensions, StyleSheet, Image
 } from 'react-native';
 
 import sp1 from '../../../media/temp/sp1.jpeg';
@@ -13,8 +13,8 @@ function toTitleCase(str) {
 export default class Cart extends Component {
     render() {
         const { main, checkoutButton, checkoutTitle, wrapper,
-        product, mainRight, productController,
-            txtName, txtPrice, productImage, numberOfProduct, 
+            product, mainRight, productController,
+            txtName, txtPrice, productImage, numberOfProduct,
             txtShowDetail, showDetailContainer } = styles;
         return (
             <View style={wrapper}>
@@ -41,9 +41,9 @@ export default class Cart extends Component {
                                         <Text>-</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity 
-                                      style={showDetailContainer}
-                                     onPress={() => { this.props.navigation.navigate('ProductDetail'); }}
+                                <TouchableOpacity
+                                    style={showDetailContainer}
+                                    onPress={() => { this.props.navigation.navigate('ProductDetail', { thamso: 'a', tham: 'b' }); }}
                                 >
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
@@ -100,7 +100,7 @@ export default class Cart extends Component {
                                         <Text>-</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity style={showDetailContainer} onPress={() => { this.props.navigation.navigate('ProductDetail'); }}>
+                                <TouchableOpacity style={showDetailContainer} onPress={() => { this.props.navigation.navigate('ProductDetail', { thamso: 'a', tham: 'b' }); }}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
                             </View>
@@ -128,7 +128,7 @@ export default class Cart extends Component {
                                         <Text>-</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity style={showDetailContainer} onPress={() => { this.props.navigation.navigate('ProductDetail'); }}>
+                                <TouchableOpacity style={showDetailContainer} onPress={() => { this.props.navigation.navigate('ProductDetail', { thamso: 'a', tham: 'b' }); }}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
                             </View>

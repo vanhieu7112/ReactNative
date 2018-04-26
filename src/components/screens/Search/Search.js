@@ -76,7 +76,7 @@ const imageHeight = (imageWidth * 452) / 361;
 
 const styles = StyleSheet.create({
     wrapper: {
-        backgroundColor: '#F6F6F6',
+        backgroundColor: '#DFDFDF',
         flex: 1
     },
     product: {
