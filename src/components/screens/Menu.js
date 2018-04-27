@@ -14,7 +14,7 @@ import profileIcon from '../../media/temp/profile.png';
 export default class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = { isLogedIn: true };
+        this.state = { isLogedIn: false };
     }
     render() {
         // console.log(this.props);
