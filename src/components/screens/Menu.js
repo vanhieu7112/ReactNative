@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import global from '../global';
 import profileIcon from '../../media/temp/profile.png';
 import saveToken from '../../api/saveToken';
+import getToken from '../../api/getToken';
 
 export default class Menu extends Component {
     constructor(props) {
@@ -13,10 +14,10 @@ export default class Menu extends Component {
 
     onSignIn(user) {
         this.setState({ user });
-        saveToken('');
     }
     onSignOut() {
         this.setState({ user: null });
+        saveToken('');
     }
 
     render() {
@@ -38,7 +39,7 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('OrderHistory')}>
                             <Text style={btnTextSignIn}>Order History</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('ChangeInfo')}>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('ChangeInfo', { user: this.state.user })}>
                             <Text style={btnTextSignIn}>Change Info</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={this.onSignOut.bind(this)}>

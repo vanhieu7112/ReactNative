@@ -12,6 +12,7 @@ import { View, Image, StyleSheet } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import checkLogin from '../../api/checkLogin';
 import getToken from '../../api/getToken';
+import refreshToken from '../../api/refreshToken';
 import global from '../global';
 
 // const CategoryStack = StackNavigator({
@@ -117,6 +118,11 @@ export default class Shop extends Component {
         .then(token => checkLogin(token))  
         .then(res => global.onSignIn(res.user))
         .catch(err => console.log('LOI CHECK LOGIN', err));
+
+        // setInterval(() => {
+        //     getToken()
+        //     .then(token => refreshToken(token));
+        // }, 60 * 1000);
     }
 
     openMenu() {

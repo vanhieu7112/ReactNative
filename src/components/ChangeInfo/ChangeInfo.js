@@ -7,10 +7,11 @@ import backSpecial from '../../media/appIcon/backs.png';
 export default class ChangeInfo extends Component {
     constructor(props) {
         super(props);
+        const { params } = this.props.navigation.state;
         this.state = { 
-            txtName: 'Bui Van Hieu', 
-            txtAddress: '83 Tran Ba Song / Giang Dong', 
-            txtPhone: '01639362891' 
+            txtName: params.user.name, 
+            txtAddress: params.user.address, 
+            txtPhone: params.user.phone 
         };
     }
    
@@ -20,7 +21,7 @@ export default class ChangeInfo extends Component {
             wrapper, header, headerTitle, backIconStyle, body,
             signInContainer, signInTextStyle, textInput
         } = styles;
-        const { name, address, phone } = this.state;
+        const { txtName, txtAddress, txtPhone } = this.state;
         return (
             <View style={wrapper}>
                 <View style={header}>
@@ -36,24 +37,24 @@ export default class ChangeInfo extends Component {
                         style={textInput}
                         placeholder="Enter your name"
                         autoCapitalize="none"
-                        value={name}
-                        onChangeText={txtName => this.setState({ ...this.state, txtName })}
+                        value={txtName}
+                        onChangeText={text => this.setState({ ...this.state, text })}
                     />
                     <TextInput
                         underlineColorAndroid='transparent'
                         style={textInput}
                         placeholder="Enter your address"
                         autoCapitalize="none"
-                        value={address}
-                        onChangeText={txtAddress => this.setState({ ...this.state, txtAddress })}
+                        value={txtAddress}
+                        onChangeText={text => this.setState({ ...this.state, text })}
                     />
                     <TextInput
                         underlineColorAndroid='transparent'
                         style={textInput}
                         placeholder="Enter your phone number"
                         autoCapitalize="none"
-                        value={phone}
-                        onChangeText={txtPhone => this.setState({ ...this.state, txtPhone })}
+                        value={txtPhone}
+                        onChangeText={text => this.setState({ ...this.state, text })}
                     />
                     <TouchableOpacity style={signInContainer}>
                         <Text style={signInTextStyle}>CHANGE YOUR INFOMATION</Text>
