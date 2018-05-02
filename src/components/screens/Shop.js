@@ -11,6 +11,8 @@ import Category from './Home/Category';
 import { View, Image, StyleSheet } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import checkLogin from '../../api/checkLogin';
+import getToken from '../../api/getToken';
+import global from '../global';
 
 // const CategoryStack = StackNavigator({
 //     Category: { screen: Category },
@@ -108,13 +110,12 @@ const TabMyShop = TabNavigator({
         },
     });
 
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImhpZXUiLCJpYXQiOjE1MjUyNjY3MjcsImV4cGlyZSI6MTUyNTQzOTUyN30.4LU_hEZhx0jvg4WU0vAO2cHiuIaduwafnzFcEI-osk0';
-
 export default class Shop extends Component {
     
     componentDidMount() {
-        checkLogin(token)
-        .then(res => console.log('CHECK LOGIN', res))
+        getToken()
+        .then(token => checkLogin(token))  
+        .then(res => global.onSignIn(res.user))
         .catch(err => console.log('LOI CHECK LOGIN', err));
     }
 
